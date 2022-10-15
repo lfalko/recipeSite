@@ -10,9 +10,7 @@ dotenv_path = join (dirname(__file__), "spoonacular.env")
 load_dotenv (dotenv_path)
 spoonKey = os.environ["SPOONACULAR_KEY"]
 
-food = "sushi"
-
-def getRecipe (food):
+def getId (food):
     url= "https://api.spoonacular.com/recipes/complexSearch?query={}&apiKey={}".format(food, spoonKey)
     response = requests.get (url)
     result = response.json()
@@ -23,15 +21,13 @@ def getRecipe (food):
 
     return id
 
-# search (food)
-
-id = 648506
+#id = 648506
 def getInfo (id):
     url="https://api.spoonacular.com/recipes/{}/information?includeNutrition=false&apiKey={}".format(id, spoonKey)
     response = requests.get (url)
     result = response.json()
     result_json = json.dumps(result,indent = 2)
-    # print (result_json)
+    print (result_json)
     ingredients = []
     for ingredient in result["extendedIngredients"]:
         name = ingredient["name"]
@@ -52,4 +48,3 @@ def getInfo (id):
 
     return recipeName, pic, time, servings, diets, summary, steps, source
 
-print (getInfo (id))

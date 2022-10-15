@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <h1>{{name}}</h1>
+        <img src = {{pic}} style = "width: 300px; height: 300px;" />
+        <h1>{{time}}</h1>
+        <h1>{{servings}}</h1>
+        <ul>
+            {% for diet in diets %} 
+                <li>{{diet}}</li>
+            {%endfor%}
+        </ul>
+        <h1>{{summary}}</h1>
+        <ol>
+            {% for step in steps %}
+                <li>{{step}}</li>
+            {%endfor%}
+        </ol>
+        <a href = "{{source}}"> link</a>
+    </body>
+</html>
