@@ -2,7 +2,14 @@ import flask
 import os
 import random
 import json
+import re
 from spoonacular_api import getInfo, getId
+
+def remove_html_tags (text):
+    """ function to remove html tags """
+
+    clean = re.compile ('<.*?>')
+    return re.sub(clean, '', text)
 
 foods = ["pasta", "sushi", "soup", "protein bar", "burger", "ramen", "pancakes", "cookies", "smoothie", "cupcakes"]
 app = flask.Flask (__name__)
@@ -11,7 +18,9 @@ app = flask.Flask (__name__)
 def index ():
     food = random.choice (foods)
     id = getId (food)
-    name, pic, time, servings, diets, summary, steps, source = getInfo (id)
+    name, pic, time, servings, diets, summary, steps, source, ingredients = getInfo (id)
+
+    summary = remove_html_tags (summary)
 
     return flask.render_template (
         "index.html",
@@ -22,7 +31,8 @@ def index ():
         diets = diets,
         summary = summary,
         steps = steps,
-        source = source
+        source = source,
+        ingredients = ingredients
         )
 
 app.run (

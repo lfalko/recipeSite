@@ -21,17 +21,22 @@ def getId (food):
 
     return id
 
-#id = 648506
+id = 648506
 def getInfo (id):
     url="https://api.spoonacular.com/recipes/{}/information?includeNutrition=false&apiKey={}".format(id, spoonKey)
     response = requests.get (url)
     result = response.json()
     result_json = json.dumps(result,indent = 2)
-    print (result_json)
-    ingredients = []
-    for ingredient in result["extendedIngredients"]:
-        name = ingredient["name"]
-        ingredients.append (name)
+    # print (result_json)
+
+    ingredientList = []
+    for i in range (len(result["extendedIngredients"])):
+        ingredientList.append (result["extendedIngredients"][i]["original"])
+
+    # ingredients = []
+    # for ingredient in result["extendedIngredients"]:
+    #     name = ingredient["name"]
+    #     ingredients.append (name)
     
     recipeName = result["title"]
     pic = result["image"]
@@ -46,5 +51,6 @@ def getInfo (id):
     for step in instructions:
         steps.append (step["step"])
 
-    return recipeName, pic, time, servings, diets, summary, steps, source
+    return recipeName, pic, time, servings, diets, summary, steps, source, ingredientList
 
+getInfo (id)
