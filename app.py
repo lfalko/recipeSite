@@ -5,6 +5,8 @@ import json
 import re
 # from spoonacular_api import getInfo, getId
 
+    #hayyy hiii hay heyyyy hello hi
+
 def remove_html_tags (text):
     """ function to remove html tags """
 
