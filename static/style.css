@@ -13,7 +13,7 @@ ul {
     color:rgb(56, 56, 56);
     text-align: center;
     background-color:honeydew;
-    max-width: 556px;
+    max-width: 25%;
     max-height: 164px;
 }
 
@@ -22,11 +22,13 @@ ul {
     font-size: 30;
     text-align: left;
     background-color:honeydew;
-    max-width: 754;
+    max-width: 25%;
     max-height: 617;
-    padding-left: 1em;
     padding-top: 10;
     padding-bottom: 10;
+}
+.ingredients li{
+    padding: 10;
 }
 
 .title {
@@ -35,7 +37,7 @@ ul {
     position: absolute;
     top: 50px;
     right: 100px;
-    width: 1000px;
+    width: 66%;
     height: 200px;
     padding: 0
 }
@@ -47,10 +49,50 @@ ul {
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
+    padding-left: 20px;
 }
 
 img {
     border-radius: 50%;
     width: 300px;
     height: 300px;
+}
+.steps {
+    font-family: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
+    font-size: 30;
+    max-height: 298;
+    background-color: honeydew;
+    position: absolute;
+    top: 54%;
+    right: 100px;
+    width: 66%;
+}
+.ts{
+    font-family: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
+    font-size: 30;
+    max-width: 25%;
+    background-color: honeydew;
+    margin-top: 10;
+}
+.ts p{
+    text-align: center;
+    margin: 0;
+}
+.summary{
+    font-family: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
+    font-size: 15;
+    max-height: 400;
+    background-color: honeydew;
+    position: absolute;
+    top: 25%;
+    right: 100px;
+    width: 66%;
+}
+.summary h1 {
+    padding: 10;
+}
+.summary a {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 20;
+    margin-bottom: 20%;
 }
